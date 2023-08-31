@@ -49,7 +49,7 @@ if ($input->email !== $user['email'] || $input->password !== $user['password']) 
 }
 
 // Inisialisasi payload
-$expired_time = time() + (15 * 60);
+$expired_time = time() + (15 * 600000000);
 $payload = [
     'email' => $input->email,
     'exp' => $expired_time
@@ -67,19 +67,4 @@ echo json_encode([
 ]);
 
 
-
-// // Encode access token
-// $access_token = JWT::encode($payload, $_ENV['ACCESS_TOKEN_SECRET']);
-
-// // Keluarkan respons sukses
-// echo json_encode([
-//     'accessToken' => $access_token,
-//     'expiry' => date(DATE_ISO8601, $expired_time)
-// ]);
-
-// // Ubah waktu kadaluarsa lebih lama (1 jam)
-// $payload['exp'] = time() + (60 * 60);
-// $refresh_token = JWT::encode($payload, $_ENV['REFRESH_TOKEN_SECRET']);
-// // Simpan refresh token di http-only cookie
-// setcookie('refreshToken', $refresh_token, $payload['exp'], '', '', false, true);
 ?>
