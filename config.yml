@@ -1,0 +1,5 @@
+authtoken: 7vsNzMK2vUaPtpcoRTHej_6g3dRfdNTXHTqK3L2Rww7
+tunnels:
+    default:
+        proto: http
+        addr: 80
